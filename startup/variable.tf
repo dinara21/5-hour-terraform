@@ -9,7 +9,7 @@ variable "region" {
   default     = ""
 }
 variable "tags" {
-  description = "Please provide a region name"
+  description = "Please provide a tag for recources"
   type        = map(any)
   default     = {}
 
