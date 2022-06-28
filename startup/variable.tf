@@ -14,3 +14,9 @@ variable "tags" {
   default     = {}
 
 }
+variable "public_subnet1" {
+  description = "Please provide CIDR block"
+  type        = string
+  default     = ""
+
+}
