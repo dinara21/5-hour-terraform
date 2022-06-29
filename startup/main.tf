@@ -45,18 +45,18 @@ resource "aws_subnet" "private3" {
 }
 resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.main.id
-  tags = var.tags
+  tags   = var.tags
 }
 
 resource "aws_eip" "nat" {
-  vpc      = true
+  vpc = true
 }
 
 resource "aws_nat_gateway" "example" {
   allocation_id = aws_eip.nat.id
   subnet_id     = aws_subnet.public1.id
-  depends_on = [aws_internet_gateway.gw]
-  tags = var.tags
+  depends_on    = [aws_internet_gateway.gw]
+  tags          = var.tags
 
 }
 
@@ -92,7 +92,7 @@ resource "aws_route_table" "private" {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_nat_gateway.example.id
   }
-  tags   = var.tags
+  tags = var.tags
 }
 
 
